@@ -12,8 +12,6 @@ const deprecated = (condition, message) => condition && console.warn(message)
 
 const MINIMUM_VELOCITY_THRESHOLD = 0.1
 
-const MINIMUM_DISTANCE_THRESHOLD = 0.24
-
 const DEFAULT_SLIDING_DURATION = 240
 
 class SlidingUpPanel extends React.Component {
@@ -33,7 +31,8 @@ class SlidingUpPanel extends React.Component {
     allowDragging: PropTypes.bool,
     showBackdrop: PropTypes.bool,
     contentStyle: PropTypes.any,
-    children: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+    minimumDistanceThreshold: PropTypes.number
   }
 
   static defaultProps = {
@@ -45,7 +44,8 @@ class SlidingUpPanel extends React.Component {
     onRequestClose: () => {},
     allowMomentum: true,
     allowDragging: true,
-    showBackdrop: true
+    showBackdrop: true,
+    minimumDistanceThreshold: 0.24
   }
 
   constructor(props) {
@@ -133,7 +133,7 @@ class SlidingUpPanel extends React.Component {
     return (
       this.props.allowDragging &&
       this._isInsideDraggableRange() &&
-      Math.abs(gestureState.dy) > MINIMUM_DISTANCE_THRESHOLD
+      Math.abs(gestureState.dy) > this.props.minimumDistanceThreshold
     )
   }
 
