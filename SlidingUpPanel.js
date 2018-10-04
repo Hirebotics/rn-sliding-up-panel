@@ -30,6 +30,7 @@ class SlidingUpPanel extends React.Component {
     allowMomentum: PropTypes.bool,
     allowDragging: PropTypes.bool,
     showBackdrop: PropTypes.bool,
+    backdropOpacity: PropTypes.number,
     contentStyle: PropTypes.any,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
     minimumDistanceThreshold: PropTypes.number
@@ -45,7 +46,8 @@ class SlidingUpPanel extends React.Component {
     allowMomentum: true,
     allowDragging: true,
     showBackdrop: true,
-    minimumDistanceThreshold: 0.24
+    minimumDistanceThreshold: 0.24,
+    backdropOpacity: 0.75
   }
 
   constructor(props) {
@@ -254,7 +256,7 @@ class SlidingUpPanel extends React.Component {
 
     const backdropOpacity = this._translateYAnimation.interpolate({
       inputRange: [-top, -bottom],
-      outputRange: [0.75, 0],
+      outputRange: [this.props.backdropOpacity, 0],
       extrapolate: 'clamp'
     })
 

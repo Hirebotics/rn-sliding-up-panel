@@ -73,6 +73,7 @@ class MyComponent extends React.Component {
 |~~contentStyle~~|~~ViewStyle~~|~~The style of content inside panel.~~ **Deprecated**. You should wrap your content inside a View.
 |children|React.Element \| Function|Accepts passing a function as component. Invoked with `dragHandlers` (that can be passed into another View like this `<View {...dragHandlers}>`) when the panel is mounted. Useful when you want a part of your content that allows the user to slide the panel with.
 |minimumDistanceThreshold|number|Default `0.24`. Minimum distance on drag before pan responder should start moving
+|backdropOpacity|number|Opacity of the backdrop when the panel is active. Default is 0.75
 
 **Notes**:
 - All properties are optional.
