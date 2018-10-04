@@ -72,6 +72,7 @@ class MyComponent extends React.Component {
 |allowMomentum|boolean|If `false`, panel will not continue to move when you release your finger.
 |~~contentStyle~~|~~ViewStyle~~|~~The style of content inside panel.~~ **Deprecated**. You should wrap your content inside a View.
 |children|React.Element \| Function|Accepts passing a function as component. Invoked with `dragHandlers` (that can be passed into another View like this `<View {...dragHandlers}>`) when the panel is mounted. Useful when you want a part of your content that allows the user to slide the panel with.
+|minimumDistanceThreshold|number|Default `0.24`. Minimum distance on drag before pan responder should start moving
 
 **Notes**:
 - All properties are optional.
